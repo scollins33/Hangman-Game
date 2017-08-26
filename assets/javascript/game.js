@@ -41,13 +41,6 @@ function newGame() {
     var cleanBoard = cleanForDisplay(gameBoard);
     htmlBoard.innerHTML = cleanBoard;
 
-    // log state of game for QA
-    console.log('Word Bank: ' + wordBank);
-    console.log('Current Word: ' + currentWord);
-    console.log('Current Chars: ' + currentChars);
-    console.log('Guess History: ' + guessHistory);
-    console.log('Starting Board: ' + gameBoard);
-
     // Set pokeballs back to full
     var numMiss = 0;
     for (var n = 0; n < ballArray.length; n++) {
@@ -72,7 +65,6 @@ function newGame() {
                     htmlBoard.innerHTML = cleanBoard;
                 }
             }
-            console.log(gameBoard);
 
             // if guess is wrong and has not been guessed before:
             // reduce guesses
@@ -85,7 +77,6 @@ function newGame() {
                 ballArray[numMiss].src='assets/images/pokeball-empty.png';
                 numMiss++;
             }
-            console.log('History: ' + guessHistory);
 
             // check for game being completed or lost
             if (gameBoard.indexOf('_') < 0) {
